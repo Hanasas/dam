@@ -6,12 +6,11 @@ import { PlayCircleOutlined, PauseCircleOutlined } from "@ant-design/icons";
 import { Music } from "../../types/Music"; 
 const styles = {
   container: {
-    maxWidth: '90%', 
     padding: '10px',
     border: '1px solid #ddd',
     borderRadius: '8px',
     margin: 'auto', 
-    minWidth: '300px'
+    width: '80%'
   },
   image: {
     width: '100%', 
@@ -23,7 +22,7 @@ const styles = {
     padding: '10px',
     textAlign: 'center' as const,
     width: '100%', 
-    height: '40vh',
+    height: '30vh',
     overflowY: 'scroll' as const,
   },
 };
@@ -148,11 +147,25 @@ export function MusicPlayer({
           width: "100%",
         }}
       >
-        <div onClick={playPrevious}><StepBackwardOutlined /></div>
+        <div onClick={playPrevious} style={{
+          marginLeft: 'auto',
+          marginRight: '2rem',
+        }}><StepBackwardOutlined style={{
+          fontSize: '2rem',
+        }} /></div>
         <div
           onClick={togglePlay}
-        >{isPlaying ? <PauseCircleOutlined /> : <PlayCircleOutlined />}</div>
-        <div onClick={playNext}><StepForwardOutlined /></div>
+        >{isPlaying ? <PauseCircleOutlined style={{
+          fontSize: '2rem',
+        }}/> : <PlayCircleOutlined style={{
+          fontSize: '2rem',
+        }}/>}</div>
+        <div onClick={playNext} style={{
+          marginLeft: '2rem',
+          marginRight: 'auto',
+        }}><StepForwardOutlined style={{
+          fontSize: '2rem',
+        }}/></div>
       </div>
       <Slider
         defaultValue={0}

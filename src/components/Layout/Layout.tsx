@@ -8,11 +8,15 @@ import {
   UploadOutlined,
   DownloadOutlined,
 } from '@ant-design/icons';
-import { Music, musics } from '../../types/Music'; 
+import { musics } from '../../types/Music'; 
+import { images } from '../../types/Image';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { MusicPlayer } from '../Music/MusicPlay';
 import { MusicList } from '../Music/MusicList';
-const { Header, Content, Footer, Sider } = Layout;
+import { ImagePlayer } from '../Image/ImagePlay';
+import { VideoPlayer } from '../Video/VideoPlay';
+import { videos } from '../../types/Video';
+const { Header, Content, Sider } = Layout;
 
 type MenuItem = {
   key: string;
@@ -107,11 +111,11 @@ const App: React.FC = () => {
       case '3':
         return <MusicList />;
       case '4':
-        return <div>播放</div>;
+        return <ImagePlayer images={images} currentImageIndex={0}></ImagePlayer>;
       case '5':
         return <div>列表</div>;
       case '6':
-        return <div>播放</div>;
+        return <VideoPlayer videos={videos} currentVideoIndex={0}></VideoPlayer>;
       case '7':
         return <div>列表</div>;
       case '8':

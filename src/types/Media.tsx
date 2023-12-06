@@ -7,6 +7,7 @@ export interface Media {
     id: number
 }
 
+
 export enum MediaType {
     MusicType = 1,
     VideoType = 2,
