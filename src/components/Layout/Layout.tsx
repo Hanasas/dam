@@ -85,6 +85,9 @@ const findBreadcrumbPath = (
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [MUsicIndex, setMusicIndex] = useState(0);
+  const [ImageIndex, setImageIndex] = useState(0);
+  const [VideoIndex, setVideoIndex] = useState(0);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -102,20 +105,32 @@ const App: React.FC = () => {
     ));
   }, [breadcrumbPath]);
 
+  const onMusicIndexChange = (index: number) => {
+    setMusicIndex(index);
+  };
+
+  const onImageIndexChange = (index: number) => {
+    setImageIndex(index);
+  };
+
+  const onVideoIndexChange = (index: number) => {
+    setVideoIndex(index);
+  };
+
   const content = useMemo(() => {
     switch(currentMenuItem) {
       case '1':
         return <div>主页</div>;
       case '2':
-        return <MusicPlayer musics={musics} currentMusicIndex={0}></MusicPlayer>;
+        return <MusicPlayer musics={musics} currentMusicIndex={MUsicIndex}></MusicPlayer>;
       case '3':
         return <MusicList />;
       case '4':
-        return <ImagePlayer images={images} currentImageIndex={0}></ImagePlayer>;
+        return <ImagePlayer images={images} currentImageIndex={ImageIndex}></ImagePlayer>;
       case '5':
         return <div>列表</div>;
       case '6':
-        return <VideoPlayer videos={videos} currentVideoIndex={0}></VideoPlayer>;
+        return <VideoPlayer videos={videos} currentVideoIndex={VideoIndex}></VideoPlayer>;
       case '7':
         return <div>列表</div>;
       case '8':

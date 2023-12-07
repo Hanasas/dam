@@ -32,6 +32,7 @@ export function VideoPlayer({
       setIndex(0);
     }
   };
+  
   useEffect(() => {
     setIsPlaying(false);
     setCurrentTime(0);
