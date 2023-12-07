@@ -85,7 +85,7 @@ const findBreadcrumbPath = (
 
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [MUsicIndex, setMusicIndex] = useState(0);
+  const [MusicIndex, setMusicIndex] = useState(0);
   const [ImageIndex, setImageIndex] = useState(0);
   const [VideoIndex, setVideoIndex] = useState(0);
   const {
@@ -107,14 +107,17 @@ const App: React.FC = () => {
 
   const onMusicIndexChange = (index: number) => {
     setMusicIndex(index);
+    setCurrentMenuItem('2');
   };
 
   const onImageIndexChange = (index: number) => {
     setImageIndex(index);
+    setCurrentMenuItem('4');
   };
 
   const onVideoIndexChange = (index: number) => {
     setVideoIndex(index);
+    setCurrentMenuItem('6');
   };
 
   const content = useMemo(() => {
@@ -122,7 +125,7 @@ const App: React.FC = () => {
       case '1':
         return <div>主页</div>;
       case '2':
-        return <MusicPlayer musics={musics} currentMusicIndex={MUsicIndex}></MusicPlayer>;
+        return <MusicPlayer musics={musics} currentMusicIndex={MusicIndex}></MusicPlayer>;
       case '3':
         return <MusicList />;
       case '4':
